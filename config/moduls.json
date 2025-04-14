@@ -1,0 +1,1702 @@
+{
+    "form_types" : [
+      {
+        "id": "1",
+        "name": "MOD-812-A",
+        "moduls" :[
+          {
+            "title" : "Raccolta e riesame dei requisiti",
+            "sections" : [
+                {
+                  "section_title": "Denominazione del committente",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields" :[
+                    [
+                      {
+                        "name": "committente",
+                        "label": "Committente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "commessa",
+                        "label": "Commessa",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "responsabile_processo",
+                        "label": "Responsabile processo",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "responsabile_rapporto_cliente",
+                        "label": "Responsabile rapporto da parte del cliente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "recapito_cliente",
+                        "label": "Recapito tel. /mail resp. da parte del cliente ",
+                        "type": "text",
+                        "default" : "",
+                        "required" : false
+                      }
+                    ]
+                  ]
+                },
+                {
+              "section_title": "Analisi preliminare",
+              "section_description": "",
+              "canAdd" : false,
+              "fields": [
+                [
+                  {
+                    "name": "attivita_committente",
+                    "label": "Attività del committente",
+                    "type": "textarea",
+                    "default": "spiegare brevemente di che cosa si occupa il committente e quali sono le attività che svolge",
+                    "required" : true
+                  },
+                  {
+                    "name": "descrizione_problematica",
+                    "label": "Descrizione della problematica",
+                    "type": "textarea",
+                    "default": "spiegare in maniera dettagliata quale è la problematica che viene affrontata relativamente a quanto il committente ha espresso. Definire con precisione quale è la reale necessità del committente e come costui la argomenta. Aggiungere, ove possibile, informazioni di cui si dispone che possano costituire un fondamento su cui si basano le necessità e gli obiettivi del cliente",
+                    "required" : true
+                  },
+                  {
+                    "name": "scopo_intervento",
+                    "label": "Scopo dellíntervento",
+                    "type": "textarea",
+                    "default": "in riferimento alle necessità del cliente, definire con accuratezza quale è lo specifico obiettivo dell’intervento dell’azienda. Spiegare, in linea di massima, come si intende proseguire per soddisfare a pieno le esigenze del cliente ed illustrare, in relazione a ciascuna scelta, le motivazioni",
+                    "required" : true
+                  },
+                  {
+                    "name": "terminologia",
+                    "label": "Terminologia",
+                    "type": "textarea",
+                    "default": "elencare eventuali termini tecnici del dominio in cui si interviene descrivendone il significato per poter favorire la comprensione del documento di analisi anche a chi non è esperto",
+                    "required" : false
+                  }
+                ]
+              ]
+                },
+                {
+                "section_title": "Requisiti funzionali e di sicurezza delle informazioni",
+                "section_description": "",
+                "canAdd" : true,
+                "fields": [
+                  [
+                    {
+                      "name": "titolo_requisito",
+                      "label": "Titolo del requisito",
+                      "type": "text",
+                      "default": "",
+                      "required" : true
+                    },
+                    {
+                      "name": "specifica_requisito",
+                      "label": "Specifica del requisito",
+                      "type": "textarea",
+                      "default": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.",
+                      "required" : true
+                    },
+                    {
+                      "name": "importanza_requisito_cliente",
+                      "label": "Importanza del requisito per il cliente",
+                      "type": "textarea",
+                      "default": "spiegare l’importanza che il cliente dà al requisito e, se possibile, i motivi dell’importanza considerando l’impatto che il requisito ha sulla soddisfazione del cliente. Al fine di classificare il requisito, attribuire un peso all’importanza utilizzando la seguente tipologia: alto, medio, basso",
+                      "required" : false
+                    },
+                    {
+                      "name": "criticita_organizzazione",
+                      "label": "Criticità del requisito per l'organizzazione",
+                      "type": "textarea",
+                      "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficolta utilizzando la seguente tipologia: alto, medio basso",
+                      "required" : true
+                    },
+                    {
+                      "name": "correlazioni_requisiti",
+                      "label": "Correlazione con altri requisiti",
+                      "type": "textarea",
+                      "default": "indicare brevemente quali sono le correlazioni del requisito con gli altri requisiti",
+                      "required" : false
+                    }
+                  ]
+                ]
+                },
+                {
+                  "section_title": "Requisiti cogenti e di sicurezza delle informazioni",
+                  "section_description": "",
+                  "canAdd" : true,
+                  "fields": [
+                    [
+                      {
+                        "name": "codice_requisito_cogenti",
+                        "label": "Codice del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "titolo_requisito_cogenti",
+                        "label": "Titolo del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "specifica_requisito",
+                        "label": "Specifica del requisito",
+                        "type": "textarea",
+                        "default": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.,",
+                        "required" : true
+                      },
+                      {
+                        "name": "importanza_requisito",
+                        "label": "Importanza del requisito per il cliente",
+                        "type": "textarea",
+                        "default": "spiegare l’importanza che il cliente dà al requisito e, se possibile, i motivi dell’importanza considerando l’impatto che il requisito ha sulla soddisfazione del cliente. Al fine di classificare il requisito, attribuire un peso all’importanza utilizzando la seguente tipologia: alto, medio, basso",
+                        "required" : true
+                      },
+                      {
+                        "name": "criticita_requisito",
+                        "label": "Criticità del requisito per l'organizzazione",
+                        "type": "textarea",
+                        "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficolta utilizzando la seguente tipologia: alto, medio basso",
+                        "required" : true
+                      },
+                      {
+                        "name": "correlazioni_requisito",
+                        "label": "Correlazioni con altri requisiti",
+                        "type": "textarea",
+                        "default": "indicare brevemente quali sono le correlazioni del requisito con gli altri requisiti",
+                        "required" : false
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Requisiti interni all'organizzazione e requisiti di sicurezza",
+                  "section_description": "",
+                  "canAdd" : true,
+                  "fields": [
+                    [
+                      {
+                        "name": "codice_requisito",
+                        "label": "Codice del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "titolo_requisito",
+                        "label": "Titolo del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "illustrazione_requisito",
+                        "label": "Illustrazione del requisito",
+                        "type": "textarea",
+                        "default": "descrivere il requisito interno e la correlazione alla soddisfazione del cliente",
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Requisiti accesori e requisiti di sicurezza",
+                  "section_description": "",
+                    "canAdd" : true,
+                  "fields": [
+                    [
+                      {
+                        "name": "codice_requisito_accesori",
+                        "label": "Codice del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "titolo_requisito_accesori",
+                        "label": "Titolo del requisito",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "illustrazione_requisito_accesori",
+                        "label": "Illustrazione del requisito",
+                        "type": "textarea",
+                        "default": "descrivere il requisito interno e la correlazione alla soddisfazione del cliente",
+                        "required" : true
+                      },
+                      {
+                        "name": "criticita_requisito_organizzazione",
+                        "label": "Criticità del requisito per l'organizzazione",
+                        "type": "textarea",
+                        "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficoltà utilizzando la seguente tipologia: alto, medio, basso.",
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Riesame dei requisiti",
+                  "section_description": "",
+                  "fields": [
+                    [
+                      {
+                      "name": "riesame_requisiti",
+                      "label": "",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Codice", 
+                        "Titolo",
+                        "Firma cliente", 
+                        "Firma AD"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Titolo": "", "Firma cliente": "", "Firma AD": ""}
+                      ]
+                    }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Approvazione del modulo",
+                  "section_description": "",
+                  "fields": [
+                  [
+                    {
+                      "name": "data_approvazione_modulo",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "organizzazione_approvazione_modulo",
+                      "label": "Organizzazione",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "cliente_approvazione_modulo",
+                      "label": "Cliente",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                  ]
+                }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "MOD-813",
+        "moduls" :[
+          {
+            "title" : "Denominazione del committente",
+            "sections" : [
+                {
+                  "section_title": "Denominazione del committente",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields" :[
+                    [
+                      {
+                        "name": "committente",
+                        "label": "Committente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "commessa",
+                        "label": "Commessa",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "responsabile_processo",
+                        "label": "Responsabile processo",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "responsabile_rapporto_cliente",
+                        "label": "Responsabile rapporto da parte del cliente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "recapito_cliente",
+                        "label": "Recapito tel. /mail resp. da parte del cliente ",
+                        "type": "text",
+                        "default" : "",
+                        "required" : false
+                      }
+                    ]
+                  ]
+                }
+            ]
+          },
+          {
+            "title" : "MOD-813-A Piano di progetto",
+            "sections" : [
+                {
+                  "section_title": "Obiettivi della progettazione e requisiti di sicurezza per le informazioni",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields": [
+                    [
+                      {
+                        "name": "obiettivo_progettazione",
+                        "label": "Descrizione",
+                        "type": "textarea",
+                        "default": "",
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Natura, durata e complessità della progettazione",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields": [
+                    [
+                      {
+                        "name": "complessita_progettazione",
+                        "label": "Descrizione",
+                        "type": "textarea",
+                        "default": "",
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Attività progettuali",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields": [
+                    [
+                      {
+                        "name": "attivita_progettuali",
+                        "label": "",
+                        "type": "table",
+                        "columns": [
+                          "Attività", 
+                          "Responsabile", 
+                          "Scadenza",
+                          "Output progettuali"
+                        ],
+                        "rows": [
+                          {"Attività": "", "Responsabile": "", "Scadenza": "", "Output progettuali": ""}
+                        ],
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Risorse necessarie",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields": [
+                    [
+                      {
+                        "name": "risorse",
+                        "label": "",
+                        "type": "table",
+                        "columns": [
+                          "Attività", 
+                          "Persone", 
+                          "Infrastrutture",
+                          "Budget in euro"
+                        ],
+                        "rows": [
+                          {"Attività": "", "Persone": "", "Infrastrutture": "", "Budget in euro": ""}
+                        ],
+                        "required" : true
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "section_title": "Controlli previsti",
+                  "section_description": "",
+                  "canAdd" : false,
+                  "fields": [
+                    [
+                      {
+                        "name": "controlli",
+                        "label": "",
+                        "type": "table",
+                        "columns": [
+                          "Data", 
+                          "Tipo controllo", 
+                          "Oggetto",
+                          "Partecipanti"
+                        ],
+                        "rows": [
+                          {"Data": "", "Tipo controllo": "", "Oggetto": "", "Partecipanti": ""}
+                        ],
+                        "required" : true
+                      }
+                    ]
+                  ]
+                }
+            ]
+          },
+          {
+            "title" : "MOD-813-B Input progettuali",
+            "sections" : [
+              {
+                "section_title": "Prodotto/servizio da realizzare e relativi requisiti di sicurezza per le informazioni",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                 [
+                  {
+                    "name": "prodotto_servizio",
+                    "label": "Descrizione",
+                    "type": "textarea",
+                    "default": "",
+                    "required" : true
+                  }
+                 ]
+                ]
+              },
+              {
+                "section_title": "Caratteristiche e criteri stabiliti dal cliente",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "caratteristiche_criteri",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Livello di dettaglio richiesto dalla progettazione",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "livello_dettaglio",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Requisiti cogenti e di sicurezza per le informazioni",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "requisiti_cogenti",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : false
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Fattori che possono influenzare la progettazione e la sicurezza delle informazioni",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "fattori_progettazione",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : false
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Caratteristiche che dovrà possedere il prodotto servizio",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "caratteristiche_servizio",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Informazioni derivanti da precedenti attività di sviluppo",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "caratteristiche_servizio",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : false
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Potenziali conseguenze di guasto dovute alla natura del prodotto/servizio",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "conseguenze",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default": "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Input progettuali",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                      {
+                      "name": "input_progettuali",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Codice input", 
+                        "Requisito di riferimento", 
+                        "Tipologia input",
+                        "Descrizione e dati"
+                      ],
+                      "rows": [
+                        {"Codice input": "", "Requisito di riferimento": "", "Tipologia input": "", "Descrizione e dati": ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Riepilogo degli input progettuali",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "riepilogo_input_progettuali",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Codice", 
+                        "Titolo", 
+                        "Firma RDP",
+                        "Firma AD"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Titolo": "", "Firma RDP": "", "Firma AD": ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "title" : "MOD-813-C Riesame della progettazione / MOD-813-D Verifica della progettazione",
+            "sections" : [
+              {
+                "section_title": "",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "riesame_progettazione_data",
+                      "label": "Riesame della progettazione del giorno",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Input e output progettuali",
+                "section_description": "Dare evidenza della corrispondenza tra gli input progettuali e gli output progettuali affinché si dimostri che tutti gli input sono stati coperti dalla progettazione",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "input_output_progettuali",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Codice", 
+                        "Input", 
+                        "Output",
+                        "Soddisfa i requisiti"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Input": "", "Output": "", "Soddisfa i requisiti" : ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Rischi di progettazione per la sicurezza delle informazioni",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "rischi_progettazione",
+                      "label": "Problema, rischio",
+                      "type": "table",
+                      "columns": [
+                        "N°", 
+                        "Descrizione"
+                      ],
+                      "rows": [
+                        {"N°": "", "Descrizione": ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Azioni necessarie",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "azioni",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Azione", 
+                        "Responsabile", 
+                        "Scadenza",
+                        "Check"
+                      ],
+                      "rows": [
+                        {"Azione": "", "Responsabile": "", "Scadenza": "", "Check": ""}
+                      ],
+                      "required" : false
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Partecipanti al riesame",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "partecipanti_riesame",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Partecipante", 
+                        "Ruolo", 
+                        "Firma"
+                      ],
+                      "rows": [
+                        {"Partecipante": "", "Ruolo": "", "Firma": ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "title" : "MOD-813-E Validazione della progettazione / MOD-813-F Output progettuali",
+            "sections" : [
+              {
+                "section_title" : "",
+                "section_description" : "",
+                "canAdd" : false,
+                "fields" :[
+                  [
+                    {
+                      "name": "validazione_progettazione",
+                      "label": "Validazione della progettazione del giorno",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Validazione degli output progettuali",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "validazione_output",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Codice", 
+                        "Output", 
+                        "Validato",
+                        "Riscontro nel prodotto o nel servizio di prova",
+                        "Progettista"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Output": "", "Validato": "", "Riscontro nel prodotto o nel servizio di prova": "", "Progettista" : ""}
+                      ],
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Azioni necessarie",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "azioni",
+                      "label": "",
+                      "type": "table",
+                      "columns": [
+                        "Azione", 
+                        "Responsabile", 
+                        "Scadenza",
+                        "Check"
+                      ],
+                      "rows": [
+                        {"Azione": "", "Responsabile": "", "Scadenza": "", "Check": ""}
+                      ],
+                      "required" : false
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "title" : "MOD-813-G Modifiche progettuali",
+            "sections" : [
+              {
+                "section_title": "Modifica",
+                "section_description": "",
+                "canAdd" : true,
+                "fields": [
+                  [
+                    {
+                      "name": "nome_modifica",
+                      "label": "Denominazione modifica",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "descrizione_modifica",
+                      "label": "Descrizione modifica",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "risultati_modifica",
+                      "label": "Risultati attesi dalla modifica",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "impatti_modifica",
+                      "label": "Impatti sulla progettazione - Rischi per le informazioni",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "modalita_modifica",
+                      "label": "Modalità di controllo della modifica",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "autorizzazione_modifica",
+                      "label": "Autorizzazione alla modifica",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_modifica",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "title" : "Approvazione del modulo",
+            "sections" : [
+              {
+                "section_title": "Approvazione del modulo",
+                "section_description": "",
+                "fields": [
+                  [
+                    {
+                      "name": "data_approvazione_modulo",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "organizzazione_approvazione_modulo",
+                      "label": "Organizzazione",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "cliente_approvazione_modulo",
+                      "label": "Cliente",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "MOD-814-C",
+        "moduls" :[
+          {
+            "title" : "Richiesta di offerta",
+            "sections" : [
+              {
+                "section_title": "Richiesta",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "fornitore_offerta",
+                      "label": "Fornitore",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "rif",
+                      "label": "Rif",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "n_rdo",
+                      "label": "N° RdO",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_offerta",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "descrizione_offerta",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "caratteristiche_offerta",
+                      "label": "Caratteristiche e requisiti di sicurezza per le informazioni",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "persone_offerta",
+                      "label": "Persone e competenze richieste",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "quantita_offerta",
+                      "label": "Quantità",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "consegna_offerta",
+                      "label": "Data consegna",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "pagamento_offerta",
+                      "label": "Pagamento",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "note_offerta",
+                      "label": "Note",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : false
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "name": "MOD-814-D",
+        "moduls" :[
+          {
+            "title" : "Ordine di Acquisto",
+            "sections" : [
+              {
+                "section_title": "Ordine",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "fornitore_acquisto",
+                      "label": "Fornitore",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "n_rdo",
+                      "label": "N° RdO",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "n_oda",
+                      "label": "N° OdA",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_acquisto",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "ordine_acquisto",
+                      "label": "Ordine",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Codice", 
+                        "Prodotto/servizio",
+                        "u.m.", 
+                        "Quantità",
+                        "Prezzo"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Prodotto/servizio": "", "u.m.": "", "Quantità": "", "Prezzo": ""}
+                      ]
+                    },
+                    {
+                      "name": "data_consegna_acquisto",
+                      "label": "Data consegna",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_fatturazione_acquisto",
+                      "label": "Data fatturazione",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "destinazione_acquisto",
+                      "label": "Destinazione",
+                      "type": "text",
+                      "default" : "",
+                      "required" : false
+                    },
+                    {
+                      "name": "trasporto_acquisto",
+                      "label": "Trasporto",
+                      "type": "text",
+                      "default" : "",
+                      "required" : false
+                    },
+                    {
+                      "name": "pagamento_acquisto",
+                      "label": "Pagamento",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "note_acquisto",
+                      "label": "Note",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : false
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "name": "MOD-814-E",
+        "moduls" :[
+          {
+            "title" : "Richiesta di modifica",
+            "sections" : [
+              {
+                "section_title": "Richiesta",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "fornitore_modifica",
+                      "label": "Fornitore",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "n_oda",
+                      "label": "N° OdA",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "n_modifica",
+                      "label": "N° Modifica",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_modifica",
+                      "label": "Data",
+                      "type": "date",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "ordine_modifica",
+                      "label": "Ordine",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Codice", 
+                        "Prodotto/servizio",
+                        "u.m.", 
+                        "Quantità",
+                        "Prezzo"
+                      ],
+                      "rows": [
+                        {"Codice": "", "Prodotto/servizio": "", "u.m.": "", "Quantità": "", "Prezzo": ""}
+                      ]
+                    },
+                    {
+                      "name": "ambito_modifica",
+                      "label": "Ambito di richiesta",
+                      "type": "text",
+                      "default" : "",
+                      "required" : true
+                    },
+                    {
+                      "name": "richiesta_modifica",
+                      "label": "Richiesta modifica",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "name": "MOD-815-A",
+        "moduls" :[
+          {
+            "title" : "Piano della produzione",
+            "sections" : [
+              {
+                "section_title": "Piano",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "dati_piano_produzione",
+                      "label": "Dati del piano di produzione",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Nome/Tipo prodotto", 
+                        "Unità da realizzare",
+                        "Persone da impiegare", 
+                        "Data inizio settimana",
+                        "Data fine settimana",
+                        "Note e documentazione di riferimento"
+                      ],
+                      "rows": [
+                        {"Nome/Tipo prodotto": "", "Unità da realizzare": "", "Persone da impiegare": "", "Data inizio settimana": "","Data fine settimana": "", "Note e documentazione di riferimento": ""}
+                      ]
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Relazione generale sulla sicurezza delle informazioni assicurata attraverso il piano di produzione",
+                "section_description": "Determinare la natura, l'utilizzo e la durata attesa da prodotti e servizi. Evidenziare le correlazioni tra i rischi per le informazioni ed i relativi controlli predisposti o da predisporre.",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "relazione",
+                      "label": "",
+                      "type": "textarea",
+                      "default" : "",
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "name": "MOD-815-B",
+        "moduls" :[
+          {
+            "title" : "Identificazione e rintracciabilità",
+            "sections" : [
+              {
+                "section_title": "",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  
+                    [
+                      {
+                        "name": "commessa",
+                        "label": "Commessa",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "prodotto_servizio",
+                        "label": "Prodotto/servizio",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "identificazione",
+                        "label": "",
+                        "type": "table",
+                        "required" : true,
+                        "columns": [
+                          "Data", 
+                          "Fase lavoro del prodotto/servizio",
+                          "Posizione", 
+                          "Stato e condizionii di sicurezza",
+                          "Controllato da"
+                        ],
+                        "rows": [
+                          {"Data": "", "Fase lavoro del prodotto/servizio": "", "Posizione": "", "Stato e condizionii di sicurezza": "","Controllato da": ""}
+                        ]
+                      }
+                    ]
+                  
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "name": "MOD-815-C",
+        "moduls" :[
+          {
+            "title" : "Validazione della produzione",
+            "sections" : [
+              {
+                "section_title": "Commessa/Prodotto",
+                "section_description": "",
+                "fields": [
+                  [
+                    {
+                      "name": "descrizione_commessa_prodotto",
+                      "label": "Descrizione",
+                      "type": "textarea",
+                      "required" : true
+                    },
+                    {
+                      "name": "committente_commessa_prodotto",
+                      "label": "Committente",
+                      "type": "text",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_redazione_commessa_prodotto",
+                      "label": "Data di redazione",
+                      "type": "text",
+                      "required" : true
+                    },
+                    {
+                      "name": "data_approvazione_commessa_prodotto",
+                      "label": "Data di approvazione",
+                      "type": "text",
+                      "required" : true
+                    },
+                    {
+                      "name": "note_commessa_prodotto",
+                      "label": "Note",
+                      "type": "textarea",
+                      "required" : true
+                    }
+                  ]
+                ]
+              },
+              {
+                "section_title": "Esito",
+                "section_description": "",
+                "fields": [
+                 [
+                  {
+                    "name": "tempi_esito",
+                    "label": "Tempi di produzione",
+                    "type": "text",
+                    "required" : true
+                  },
+                  {
+                    "name": "asset_esito",
+                    "label": "Asset della sicurezza",
+                    "type": "text",
+                    "required" : true
+                  },
+                  {
+                    "name": "risorse_esito",
+                    "label": "Risorse umane",
+                    "type": "text",
+                    "required" : true
+                  },
+                  {
+                    "name": "risk_esito",
+                    "label": "Risk management di produzione",
+                    "type": "text",
+                    "required" : true
+                  },
+                  {
+                    "name": "motivazioni_esito",
+                    "label": "Motivazioni di non validazione",
+                    "type": "textarea",
+                    "required" : false
+                  }
+                 ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "name": "MOD-815-D",
+        "moduls" :[
+          {
+            "title" : "Rilascio del prodotto",
+            "sections" : [
+              {
+                "section_title": "Rilascio",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  
+                    [
+                      {
+                        "name": "commessa",
+                        "label": "Commessa/Prodotto",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "descrizione_commessa_prodotto",
+                        "label": "Descrizione",
+                        "type": "textarea",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "committente_commessa_prodotto",
+                        "label": "Committente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_completamento",
+                        "label": "Data di completamento",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_rilascio_prevista",
+                        "label": "Data di rilascio prevista",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_rilascio_effettiva",
+                        "label": "Data di rilascio effettiva",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "esito_commessa_prodotto",
+                        "label": "Rilascio",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "motivi_commessa_prodotto",
+                        "label": "Motivi di non rilascio",
+                        "type": "textarea",
+                        "default" : "Inserire le motivazioni in caso di mancato rilascio del prodotto e le azioni da intraprendere",
+                        "required" : false
+                      }
+                    ]
+                  
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "name": "MOD-815-E",
+        "moduls" :[
+          {
+            "title" : "Consegna del prodotto",
+            "sections" : [
+              {
+                "section_title": "Consegna",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  
+                    [
+                      {
+                        "name": "commessa",
+                        "label": "Commessa/Prodotto",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "descrizione_commessa_prodotto",
+                        "label": "Descrizione",
+                        "type": "textarea",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "committente_commessa_prodotto",
+                        "label": "Committente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_completamento",
+                        "label": "Data di completamento",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_rilascio_prevista",
+                        "label": "Data di rilascio prevista",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "data_rilascio_effettiva",
+                        "label": "Data di rilascio effettiva",
+                        "type": "date",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "collaudo_commessa_prodotto",
+                        "label": "Collaudo",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "motivi_commessa_prodotto",
+                        "label": "Motivi di non conformità del rilascio",
+                        "type": "textarea",
+                        "default" : "In caso di collaudo non conforme inserire NC emerse e le misure da intraprendere",
+                        "required" : false
+                      }
+                    ]
+                  
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "name": "MOD-815-F",
+        "moduls" :[
+          {
+            "title" : "Poprietà del cliente",
+            "sections" : [
+              {
+                "section_title": "Verbale di acquisizione della proprietà del cliente (informazioni e asset)",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  
+                    [
+                      {
+                        "name": "cliente",
+                        "label": "Cliente",
+                        "type": "text",
+                        "default" : "",
+                        "required" : true
+                      },
+                      {
+                        "name": "proprieta_cliente",
+                        "label": "",
+                        "type": "table",
+                        "required" : true,
+                        "columns": [
+                          "Proprietà acquisite", 
+                          "Stato",
+                          "Motivi dell'acquisizione", 
+                          "Data acquisizione",
+                          "Data pervista di riconsegna"
+                        ],
+                        "rows": [
+                          {"Proprietà acquisite": "", "Stato": "", "Motivi dell'acquisizione": "", "Data acquisizione": "","Data pervista di riconsegna": ""}
+                        ]
+                      }
+                    ]
+                  
+                ]
+              },
+              {
+                "section_title": "Identificazione e rintracciabilità della proprietà del cliente",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  
+                    [
+                      {
+                        "name": "rintracciabilita",
+                        "label": "",
+                        "type": "table",
+                        "required" : true,
+                        "columns": [
+                          "Data", 
+                          "Attività sulla proprietà del cliente",
+                          "Posizione", 
+                          "Stato",
+                          "Controllato"
+                        ],
+                        "rows": [
+                          {"Data": "", "Attività sulla proprietà del cliente": "", "Posizione": "", "Stato": "","Controllato": ""}
+                        ]
+                      }
+                    ]
+                  
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12",
+        "name": "MOD-817-A",
+        "moduls" :[
+          {
+            "title" : "Controllo qualità",
+            "sections" : [
+              {
+                "section_title": "Controllo per la preservazione dei requisit funzionali e di sicurezza delle informazioni",
+                "section_description": "",
+                "canAdd" : false,
+                "fields": [
+                  [
+                    {
+                      "name": "denominazione_prodotto",
+                      "label": "Denominazione del prodotto e relativo codice",
+                      "type": "text",
+                      "required" : true
+                    },
+                    {
+                      "name": "controllo_qualita_rgsi",
+                      "label": "A cura del responsabile del controllo qualità e del RSGI",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Requisito", 
+                        "Non conf."
+                      ],
+                      "rows": [
+                        {"Requisito": "","Non conf.": ""}
+                      ]
+                    },
+                    {
+                      "name": "controllo_qualita_rdp",
+                      "label": "A cura del RDP",
+                      "type": "table",
+                      "required" : true,
+                      "columns": [
+                        "Tipologia NC", 
+                        "Azione",
+                        "Firma responsabile"
+                      ],
+                      "rows": [
+                        {"Tipologia NC": "","Azione": "","Firma responsabile": ""}
+                      ]
+                    },
+                    {
+                      "name": "data_rilevazione",
+                      "label": "Data rilevazione",
+                      "type": "date",
+                      "required" : true
+                    },
+                    {
+                      "name": "responsabile_controllo",
+                      "label": "Responsabile controllo",
+                      "type": "text",
+                      "required" : true
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
