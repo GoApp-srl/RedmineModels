@@ -608,7 +608,7 @@
                     {
                       "name": "validazione_progettazione",
                       "label": "Validazione della progettazione del giorno",
-                      "type": "text",
+                      "type": "date",
                       "default" : "",
                       "required" : true
                     }
