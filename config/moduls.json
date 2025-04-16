@@ -253,7 +253,7 @@
                           },
                           {
                             "name": "Scadenza",
-                            "inputType": "text"
+                            "inputType": "date"
                           },
                           {
                             "name":"Output progettuali", 
@@ -555,7 +555,7 @@
                         },
                         {
                           "name":"Scadenza",
-                          "inputType": "text"
+                          "inputType": "date"
                         }
                       ],
                       "rows": [
@@ -676,7 +676,7 @@
                         },
                         {
                           "name":"Scadenza",
-                          "inputType": "text"
+                          "inputType": "date"
                         }
                       ],
                       "rows": [
