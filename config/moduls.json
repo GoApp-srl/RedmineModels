@@ -112,152 +112,6 @@
                 ]
                 },
                 {
-                  "section_title": "Requisiti cogenti e di sicurezza delle informazioni",
-                  "section_description": "",
-                  "canAdd" : true,
-                  "fields": [
-                    [
-                      {
-                        "name": "codice_requisito_cogenti",
-                        "label": "Codice del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "titolo_requisito_cogenti",
-                        "label": "Titolo del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "specifica_requisito",
-                        "label": "Specifica del requisito",
-                        "type": "textarea",
-                        "default": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.,",
-                        "required" : true
-                      },
-                      {
-                        "name": "importanza_requisito",
-                        "label": "Importanza del requisito per il cliente",
-                        "type": "textarea",
-                        "default": "spiegare l’importanza che il cliente dà al requisito e, se possibile, i motivi dell’importanza considerando l’impatto che il requisito ha sulla soddisfazione del cliente. Al fine di classificare il requisito, attribuire un peso all’importanza utilizzando la seguente tipologia: alto, medio, basso",
-                        "required" : true
-                      },
-                      {
-                        "name": "criticita_requisito",
-                        "label": "Criticità del requisito per l'organizzazione",
-                        "type": "textarea",
-                        "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficolta utilizzando la seguente tipologia: alto, medio basso",
-                        "required" : true
-                      },
-                      {
-                        "name": "correlazioni_requisito",
-                        "label": "Correlazioni con altri requisiti",
-                        "type": "textarea",
-                        "default": "indicare brevemente quali sono le correlazioni del requisito con gli altri requisiti",
-                        "required" : false
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "section_title": "Requisiti interni all'organizzazione e requisiti di sicurezza",
-                  "section_description": "",
-                  "canAdd" : true,
-                  "fields": [
-                    [
-                      {
-                        "name": "codice_requisito",
-                        "label": "Codice del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "titolo_requisito",
-                        "label": "Titolo del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "illustrazione_requisito",
-                        "label": "Illustrazione del requisito",
-                        "type": "textarea",
-                        "default": "descrivere il requisito interno e la correlazione alla soddisfazione del cliente",
-                        "required" : true
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "section_title": "Requisiti accesori e requisiti di sicurezza",
-                  "section_description": "",
-                    "canAdd" : true,
-                  "fields": [
-                    [
-                      {
-                        "name": "codice_requisito_accesori",
-                        "label": "Codice del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "titolo_requisito_accesori",
-                        "label": "Titolo del requisito",
-                        "type": "text",
-                        "default" : "",
-                        "required" : true
-                      },
-                      {
-                        "name": "illustrazione_requisito_accesori",
-                        "label": "Illustrazione del requisito",
-                        "type": "textarea",
-                        "default": "descrivere il requisito interno e la correlazione alla soddisfazione del cliente",
-                        "required" : true
-                      },
-                      {
-                        "name": "criticita_requisito_organizzazione",
-                        "label": "Criticità del requisito per l'organizzazione",
-                        "type": "textarea",
-                        "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficoltà utilizzando la seguente tipologia: alto, medio, basso.",
-                        "required" : true
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "section_title": "Riesame dei requisiti",
-                  "section_description": "",
-                  "fields": [
-                    [
-                      {
-                      "name": "riesame_requisiti",
-                      "label": "",
-                      "type": "table",
-                      "required" : true,
-                      "columns": [
-                        
-                        {
-                          "name":"Codice", 
-                          "inputType": "text"
-                        },
-                        {
-                          "name":"Titolo", 
-                          "inputType": "text"
-                        }
-                      ],
-                      "rows": [
-                        {"Codice": "", "Titolo": ""}
-                      ]
-                    }
-                    ]
-                  ]
-                },
-                {
                   "section_title": "Approvazione del modulo",
                   "section_description": "",
                   "fields": [
@@ -379,7 +233,7 @@
                   ]
                 },
                 {
-                  "section_title": "Attività progettuali",
+                  "section_title": "Attività progettuali e risorse",
                   "section_description": "",
                   "canAdd" : false,
                   "fields": [
@@ -404,46 +258,14 @@
                           {
                             "name":"Output progettuali", 
                             "inputType": "text"
-                          }
-                        ],
-                        "rows": [
-                          {"Attività": "", "Responsabile": "", "Scadenza": "", "Output progettuali": ""}
-                        ],
-                        "required" : true
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "section_title": "Risorse necessarie",
-                  "section_description": "",
-                  "canAdd" : false,
-                  "fields": [
-                    [
-                      {
-                        "name": "risorse",
-                        "label": "",
-                        "type": "table",
-                        "columns": [
-                          {
-                            "name":  "Attività", 
-                            "inputType": "text"
                           },
                           {
                             "name": "Persone", 
                             "inputType": "select-user"
-                          },
-                          {
-                            "name": "Infrastrutture",
-                            "inputType": "text"
-                          },
-                          {
-                            "name": "Budget in euro",
-                            "inputType": "text"
                           }
                         ],
                         "rows": [
-                          {"Attività": "", "Persone": "", "Infrastrutture": "", "Budget in euro": ""}
+                          {"Attività": "", "Responsabile": "", "Scadenza": "", "Output progettuali": ""}
                         ],
                         "required" : true
                       }
@@ -525,22 +347,6 @@
                 ]
               },
               {
-                "section_title": "Livello di dettaglio richiesto dalla progettazione",
-                "section_description": "",
-                "canAdd" : false,
-                "fields": [
-                  [
-                    {
-                      "name": "livello_dettaglio",
-                      "label": "Descrizione",
-                      "type": "textarea",
-                      "default": "",
-                      "required" : true
-                    }
-                  ]
-                ]
-              },
-              {
                 "section_title": "Requisiti cogenti e di sicurezza per le informazioni",
                 "section_description": "",
                 "canAdd" : false,
@@ -573,22 +379,6 @@
                 ]
               },
               {
-                "section_title": "Caratteristiche che dovrà possedere il prodotto servizio",
-                "section_description": "",
-                "canAdd" : false,
-                "fields": [
-                  [
-                    {
-                      "name": "caratteristiche_servizio",
-                      "label": "Descrizione",
-                      "type": "textarea",
-                      "default": "",
-                      "required" : true
-                    }
-                  ]
-                ]
-              },
-              {
                 "section_title": "Informazioni derivanti da precedenti attività di sviluppo",
                 "section_description": "",
                 "canAdd" : false,
@@ -615,7 +405,7 @@
                       "label": "Descrizione",
                       "type": "textarea",
                       "default": "",
-                      "required" : true
+                      "required" : false
                     }
                   ]
                 ]
@@ -651,34 +441,6 @@
                       ],
                       "rows": [
                         {"Codice input": "", "Requisito di riferimento": "", "Tipologia input": "", "Descrizione e dati": ""}
-                      ],
-                      "required" : true
-                    }
-                  ]
-                ]
-              },
-              {
-                "section_title": "Riepilogo degli input progettuali",
-                "section_description": "",
-                "canAdd" : false,
-                "fields": [
-                  [
-                    {
-                      "name": "riepilogo_input_progettuali",
-                      "label": "",
-                      "type": "table",
-                      "columns": [
-                        {
-                          "name": "Codice", 
-                          "inputType": "text"
-                        },
-                        {
-                          "name":"Titolo",
-                          "inputType": "text"
-                        }
-                      ],
-                      "rows": [
-                        {"Codice": "", "Titolo": ""}
                       ],
                       "required" : true
                     }
@@ -882,7 +644,7 @@
                         },
                         {
                           "name":"Progettista", 
-                          "inputType": "text"
+                          "inputType": "select-user"
                         }
                       ],
                       "rows": [

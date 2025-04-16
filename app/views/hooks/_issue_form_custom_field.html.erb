@@ -24,10 +24,8 @@
   };
 
   const markdownContainer = document.getElementById('issue_description');
-  console.log(markdownContainer);
 
-
-    $('#issue_dynamic_description_select').select2();
+  $('#issue_dynamic_description_select').select2();
 
   $('#issue_dynamic_description_select').on('change', function() {
 
@@ -306,7 +304,7 @@
         input.type = inputType;
       }
 
-      input.name = `${field.name}_row_${rowIndex}_col_${colIndex}`;
+      input.name = field.name;
       input.value = row[column.name] || '';
 
       input.addEventListener('input', function() { field.rows[rowIndex][column.name] = input.value; updateMarkdown(input);});
@@ -314,9 +312,6 @@
       td.appendChild(input);
       rowElement.appendChild(td);
     });
-
-    console.log('re', rowElement);
-
 
     table.appendChild(rowElement);
   }
@@ -334,7 +329,6 @@
   }
 
   function findFieldByName(fieldName) {
-
     for (let modul of markdownContent.formSections) {
       for (let section of modul.sections) {
          for (let group of section.groups) {
@@ -409,13 +403,13 @@
 
 
   function generateTableSection(section) {
-    let tableMarkdown = '| Campo | Descrizione |\n';
+    let tableMarkdown = '| Titolo | Descrizione |\n';
     tableMarkdown += '|-------|--------|\n';
 
     section.groups.forEach(group => {
       group.fields.forEach(field => {
         if (field.value && field.value.trim() !== '') {
-          tableMarkdown += `| ${field.label || 'Campo'} | ${field.value} |\n`;
+          tableMarkdown += `| ${field.label || 'Titolo'} | ${field.value} |\n`;
         }
       });
     });
@@ -424,7 +418,6 @@
   }
 
   function formatField(field) {
-   console.log('formatfield', field);
     if (field.type === 'table') {
 
 
