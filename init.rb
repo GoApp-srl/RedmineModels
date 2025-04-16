@@ -2,11 +2,10 @@ require 'redmine'
 
 Redmine::Plugin.register :dynamic_issue_description do
   name 'Dynamic Issue Description Plugin'
-  author 'Your Name'
+  author 'GoApp'
   description 'A plugin to add a dynamic description field to issues'
-  version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  version '1.0.0'
+  url 'https://github.com/GoApp-srl/RedmineModels.git'
 
   require File.expand_path('../lib/dynamic_issue_description/dynamic_issue_description_hook_listener', __FILE__)
 

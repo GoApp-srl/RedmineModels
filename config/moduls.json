@@ -66,24 +66,10 @@
                   },
                   {
                     "name": "descrizione_problematica",
-                    "label": "Descrizione della problematica",
+                    "label": "Descrizione della problematica / Scopo dell'intervento",
                     "type": "textarea",
                     "default": "spiegare in maniera dettagliata quale è la problematica che viene affrontata relativamente a quanto il committente ha espresso. Definire con precisione quale è la reale necessità del committente e come costui la argomenta. Aggiungere, ove possibile, informazioni di cui si dispone che possano costituire un fondamento su cui si basano le necessità e gli obiettivi del cliente",
                     "required" : true
-                  },
-                  {
-                    "name": "scopo_intervento",
-                    "label": "Scopo dellíntervento",
-                    "type": "textarea",
-                    "default": "in riferimento alle necessità del cliente, definire con accuratezza quale è lo specifico obiettivo dell’intervento dell’azienda. Spiegare, in linea di massima, come si intende proseguire per soddisfare a pieno le esigenze del cliente ed illustrare, in relazione a ciascuna scelta, le motivazioni",
-                    "required" : true
-                  },
-                  {
-                    "name": "terminologia",
-                    "label": "Terminologia",
-                    "type": "textarea",
-                    "default": "elencare eventuali termini tecnici del dominio in cui si interviene descrivendone il significato per poter favorire la comprensione del documento di analisi anche a chi non è esperto",
-                    "required" : false
                   }
                 ]
               ]
@@ -107,13 +93,6 @@
                       "type": "textarea",
                       "default": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.",
                       "required" : true
-                    },
-                    {
-                      "name": "importanza_requisito_cliente",
-                      "label": "Importanza del requisito per il cliente",
-                      "type": "textarea",
-                      "default": "spiegare l’importanza che il cliente dà al requisito e, se possibile, i motivi dell’importanza considerando l’impatto che il requisito ha sulla soddisfazione del cliente. Al fine di classificare il requisito, attribuire un peso all’importanza utilizzando la seguente tipologia: alto, medio, basso",
-                      "required" : false
                     },
                     {
                       "name": "criticita_organizzazione",
@@ -261,13 +240,18 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Codice", 
-                        "Titolo",
-                        "Firma cliente", 
-                        "Firma AD"
+                        
+                        {
+                          "name":"Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Titolo", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Codice": "", "Titolo": "", "Firma cliente": "", "Firma AD": ""}
+                        {"Codice": "", "Titolo": ""}
                       ]
                     }
                     ]
@@ -405,10 +389,22 @@
                         "label": "",
                         "type": "table",
                         "columns": [
-                          "Attività", 
-                          "Responsabile", 
-                          "Scadenza",
-                          "Output progettuali"
+                          {
+                            "name":"Attività",  
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Responsabile", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Scadenza",
+                            "inputType": "text"
+                          },
+                          {
+                            "name":"Output progettuali", 
+                            "inputType": "text"
+                          }
                         ],
                         "rows": [
                           {"Attività": "", "Responsabile": "", "Scadenza": "", "Output progettuali": ""}
@@ -429,10 +425,22 @@
                         "label": "",
                         "type": "table",
                         "columns": [
-                          "Attività", 
-                          "Persone", 
-                          "Infrastrutture",
-                          "Budget in euro"
+                          {
+                            "name":  "Attività", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Persone", 
+                            "inputType": "select-user"
+                          },
+                          {
+                            "name": "Infrastrutture",
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Budget in euro",
+                            "inputType": "text"
+                          }
                         ],
                         "rows": [
                           {"Attività": "", "Persone": "", "Infrastrutture": "", "Budget in euro": ""}
@@ -453,13 +461,26 @@
                         "label": "",
                         "type": "table",
                         "columns": [
-                          "Data", 
-                          "Tipo controllo", 
-                          "Oggetto",
-                          "Partecipanti"
+                         
+                          {
+                            "name": "Data",
+                            "inputType": "date"
+                          },
+                          {
+                            "name":   "Tipo controllo", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Oggetto",
+                            "inputType": "text"
+                          },
+                          {
+                            "name":  "Partecipante",
+                            "inputType": "select-user"
+                          }
                         ],
                         "rows": [
-                          {"Data": "", "Tipo controllo": "", "Oggetto": "", "Partecipanti": ""}
+                          {"Data": "", "Tipo controllo": "", "Oggetto": "", "Partecipante": ""}
                         ],
                         "required" : true
                       }
@@ -610,10 +631,23 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Codice input", 
-                        "Requisito di riferimento", 
-                        "Tipologia input",
-                        "Descrizione e dati"
+                      
+                        {
+                          "name": "Codice input", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Requisito di riferimento",  
+                          "inputType": "text"
+                        },
+                        {
+                          "name": "Tipologia input",
+                          "inputType": "text"
+                        },
+                        {
+                          "name": "Descrizione e dati", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Codice input": "", "Requisito di riferimento": "", "Tipologia input": "", "Descrizione e dati": ""}
@@ -634,13 +668,17 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Codice", 
-                        "Titolo", 
-                        "Firma RDP",
-                        "Firma AD"
+                        {
+                          "name": "Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Titolo",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Codice": "", "Titolo": "", "Firma RDP": "", "Firma AD": ""}
+                        {"Codice": "", "Titolo": ""}
                       ],
                       "required" : true
                     }
@@ -679,10 +717,22 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Codice", 
-                        "Input", 
-                        "Output",
-                        "Soddisfa i requisiti"
+                        {
+                          "name": "Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":  "Input", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name": "Output", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name": "Soddisfa i requisiti", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Codice": "", "Input": "", "Output": "", "Soddisfa i requisiti" : ""}
@@ -703,8 +753,16 @@
                       "label": "Problema, rischio",
                       "type": "table",
                       "columns": [
-                        "N°", 
-                        "Descrizione"
+                        
+                       
+                        {
+                          "name":"N°", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":  "Descrizione", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"N°": "", "Descrizione": ""}
@@ -725,13 +783,21 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Azione", 
-                        "Responsabile", 
-                        "Scadenza",
-                        "Check"
+                        {
+                          "name":"Azione", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Responsabile", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Scadenza",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Azione": "", "Responsabile": "", "Scadenza": "", "Check": ""}
+                        {"Azione": "", "Responsabile": "", "Scadenza": ""}
                       ],
                       "required" : false
                     }
@@ -749,12 +815,17 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Partecipante", 
-                        "Ruolo", 
-                        "Firma"
+                        {
+                          "name":"Partecipante", 
+                          "inputType": "select-user"
+                        },
+                        {
+                          "name":"Ruolo", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Partecipante": "", "Ruolo": "", "Firma": ""}
+                        {"Partecipante": "", "Ruolo": ""}
                       ],
                       "required" : true
                     }
@@ -793,11 +864,26 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Codice", 
-                        "Output", 
-                        "Validato",
-                        "Riscontro nel prodotto o nel servizio di prova",
-                        "Progettista"
+                        {
+                          "name":"Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Output", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Validato", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Riscontro nel prodotto o nel servizio di prova",
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Progettista", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Codice": "", "Output": "", "Validato": "", "Riscontro nel prodotto o nel servizio di prova": "", "Progettista" : ""}
@@ -818,13 +904,21 @@
                       "label": "",
                       "type": "table",
                       "columns": [
-                        "Azione", 
-                        "Responsabile", 
-                        "Scadenza",
-                        "Check"
+                        {
+                          "name":"Azione", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Responsabile", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Scadenza",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Azione": "", "Responsabile": "", "Scadenza": "", "Check": ""}
+                        {"Azione": "", "Responsabile": "", "Scadenza": ""}
                       ],
                       "required" : false
                     }
@@ -1076,11 +1170,26 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Codice", 
-                        "Prodotto/servizio",
-                        "u.m.", 
-                        "Quantità",
-                        "Prezzo"
+                        {
+                          "name":"Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Prodotto/servizio", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"u.m.",
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Quantità", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Prezzo", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Codice": "", "Prodotto/servizio": "", "u.m.": "", "Quantità": "", "Prezzo": ""}
@@ -1182,11 +1291,26 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Codice", 
-                        "Prodotto/servizio",
-                        "u.m.", 
-                        "Quantità",
-                        "Prezzo"
+                        {
+                          "name":"Codice", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Prodotto/servizio", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"u.m.",
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Quantità", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Prezzo", 
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Codice": "", "Prodotto/servizio": "", "u.m.": "", "Quantità": "", "Prezzo": ""}
@@ -1232,12 +1356,30 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Nome/Tipo prodotto", 
-                        "Unità da realizzare",
-                        "Persone da impiegare", 
-                        "Data inizio settimana",
-                        "Data fine settimana",
-                        "Note e documentazione di riferimento"
+                        {
+                          "name":"Nome/Tipo prodotto", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Unità da realizzare",
+                          "inputType": "text"
+                        },
+                        {
+                          "name":"Persone da impiegare", 
+                          "inputType": "select-user"
+                        },
+                        {
+                          "name":"Data inizio settimana",
+                          "inputType": "date"
+                        },
+                        {
+                          "name":"Data fine settimana",
+                          "inputType": "date"
+                        },
+                        {
+                          "name":"Note e documentazione di riferimento",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Nome/Tipo prodotto": "", "Unità da realizzare": "", "Persone da impiegare": "", "Data inizio settimana": "","Data fine settimana": "", "Note e documentazione di riferimento": ""}
@@ -1300,11 +1442,26 @@
                         "type": "table",
                         "required" : true,
                         "columns": [
-                          "Data", 
-                          "Fase lavoro del prodotto/servizio",
-                          "Posizione", 
-                          "Stato e condizionii di sicurezza",
-                          "Controllato da"
+                          {
+                            "name": "Data",
+                            "inputType": "date"
+                          },
+                          {
+                            "name": "Fase lavoro del prodotto/servizio",
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Posizione",
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Stato e condizionii di sicurezza",
+                            "inputType": "textarea"
+                          },
+                          {
+                            "name": "Controllato da",
+                            "inputType": "text"
+                          }
                         ],
                         "rows": [
                           {"Data": "", "Fase lavoro del prodotto/servizio": "", "Posizione": "", "Stato e condizionii di sicurezza": "","Controllato da": ""}
@@ -1588,11 +1745,27 @@
                         "type": "table",
                         "required" : true,
                         "columns": [
-                          "Proprietà acquisite", 
-                          "Stato",
-                          "Motivi dell'acquisizione", 
-                          "Data acquisizione",
-                          "Data pervista di riconsegna"
+                      
+                          {
+                            "name":"Proprietà acquisite", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name":"Stato", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name":"Motivi dell'acquisizione", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Data acquisizione",
+                            "inputType": "date"
+                          },
+                          {
+                            "name":"Data pervista di riconsegna", 
+                            "inputType": "date"
+                          }
                         ],
                         "rows": [
                           {"Proprietà acquisite": "", "Stato": "", "Motivi dell'acquisizione": "", "Data acquisizione": "","Data pervista di riconsegna": ""}
@@ -1615,11 +1788,26 @@
                         "type": "table",
                         "required" : true,
                         "columns": [
-                          "Data", 
-                          "Attività sulla proprietà del cliente",
-                          "Posizione", 
-                          "Stato",
-                          "Controllato"
+                          {
+                            "name": "Data",
+                            "inputType": "date"
+                          },
+                          {
+                            "name":"Attività sulla proprietà del cliente",
+                            "inputType": "text"
+                          },
+                          {
+                            "name":"Posizione", 
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Stato",
+                            "inputType": "text"
+                          },
+                          {
+                            "name": "Controllato",
+                            "inputType": "text"
+                          }
                         ],
                         "rows": [
                           {"Data": "", "Attività sulla proprietà del cliente": "", "Posizione": "", "Stato": "","Controllato": ""}
@@ -1658,8 +1846,14 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Requisito", 
-                        "Non conf."
+                        {
+                          "name":   "Requisito", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name": "Non conf.",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
                         {"Requisito": "","Non conf.": ""}
@@ -1671,12 +1865,17 @@
                       "type": "table",
                       "required" : true,
                       "columns": [
-                        "Tipologia NC", 
-                        "Azione",
-                        "Firma responsabile"
+                        {
+                          "name":    "Tipologia NC", 
+                          "inputType": "text"
+                        },
+                        {
+                          "name":   "Azione",
+                          "inputType": "text"
+                        }
                       ],
                       "rows": [
-                        {"Tipologia NC": "","Azione": "","Firma responsabile": ""}
+                        {"Tipologia NC": "","Azione": ""}
                       ]
                     },
                     {

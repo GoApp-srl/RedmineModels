@@ -1,9 +1,12 @@
 <p>
   <label for="issue_dynamic_description_select">Moduli</label>
-  <select id="issue_dynamic_description_select" name="issue[dynamic_description_select]">
+  <select
+    id="issue_dynamic_description_select"
+    name="issue[dynamic_description_select]"
+  >
     <option value="">Seleziona un modulo</option>
     <% form_types['form_types'].each do |form_type| %>
-      <option value="<%= form_type['id'] %>"><%= form_type['name'] %></option>
+    <option value="<%= form_type['id'] %>"><%= form_type['name'] %></option>
     <% end %>
   </select>
 </p>
@@ -11,441 +14,508 @@
 <div id="dynamic_form_container"></div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-      const form_types = <%= raw form_types.to_json %>;
-      console.log(form_types);
-      
-let markdownContent = {
-  title: '',
-  formSections: []
-};
+  document.addEventListener('DOMContentLoaded', function() {
+        const form_types = <%= raw form_types.to_json %>;
+        console.log(form_types);
 
-const markdownContainer = document.getElementById('issue_description');
-console.log(markdownContainer);
-
-
-document.getElementById('issue_dynamic_description_select').addEventListener('change', function() {
-    
-  const selectedType = this.value;
-  const dynamicFormContainer = document.getElementById('dynamic_form_container');
-  dynamicFormContainer.innerHTML = '';
-
-  if (selectedType === '') {
-    markdownContent = { title: '', formSections: [] };
-    markdownContainer.textContent = '';
-    return;
-  }
-
-  const formType = form_types['form_types'].find(ft => ft.id.toString() === selectedType);
-
-  if (formType) {
-    markdownContent = { title: '', formSections: [] };
-
-    if (formType.name) {
-      markdownContent.title = `# ${formType.name}\n\n`;
-    }
-
-    formType.moduls.forEach(function(modul, modulIndex) {
-      const modulContainer = document.createElement('div');
-      modulContainer.classList.add('modul-container');
-
-      if (modul.title) {
-        const modulTitleElement = document.createElement('h2');
-        modulTitleElement.innerText = modul.title;
-        modulContainer.appendChild(modulTitleElement);
-      }
-
-      const modulData = {
-        title: modul.title || '',
-        sections: []
-      };
-
-      modul.sections.forEach(function(section, sectionIndex) {
-        createSection(modulContainer, section, sectionIndex, modulData.sections);
-      });
-
-      markdownContent.formSections.push(modulData);
-      dynamicFormContainer.appendChild(modulContainer);
-    });
-
-    markdownContainer.textContent = generateMarkdownContent(markdownContent);
-  }
-});
-
-function createSection(modulContainer, section, sectionIndex, sectionsArray) {
-  let groupCounter = 1;
-
-  const sectionData = {
-    title: section.section_title || '',
-    groups: []
+  let markdownContent = {
+    title: '',
+    formSections: []
   };
 
-  const sectionContainer = document.createElement('div');
-  sectionContainer.classList.add('section-group');
+  const markdownContainer = document.getElementById('issue_description');
+  console.log(markdownContainer);
 
-  if (section.section_title) {
-    const sectionTitleElement = document.createElement('h3');
-    sectionTitleElement.innerText = section.section_title;
-    sectionContainer.appendChild(sectionTitleElement);
-  }
 
-  const groupContainer = document.createElement('div');
-  groupContainer.classList.add('group-container');
+    $('#issue_dynamic_description_select').select2();
 
-  function addGroup() {
-    const groupData = {
-      groupTitle: "",
-      fields: []
+  $('#issue_dynamic_description_select').on('change', function() {
+
+    const selectedType = this.value;
+    const dynamicFormContainer = document.getElementById('dynamic_form_container');
+    dynamicFormContainer.innerHTML = '';
+
+    if (selectedType === '') {
+      markdownContent = { title: '', formSections: [] };
+      markdownContainer.textContent = '';
+      return;
+    }
+
+    const formType = form_types['form_types'].find(ft => ft.id.toString() === selectedType);
+
+    if (formType) {
+      markdownContent = { title: '', formSections: [] };
+
+      if (formType.name) {
+        markdownContent.title = `# ${formType.name}\n\n`;
+      }
+
+      formType.moduls.forEach(function(modul, modulIndex) {
+        const modulContainer = document.createElement('div');
+        modulContainer.classList.add('modul-container');
+
+        if (modul.title) {
+          const modulTitleElement = document.createElement('h2');
+          modulTitleElement.innerText = modul.title;
+          modulContainer.appendChild(modulTitleElement);
+        }
+
+        const modulData = {
+          title: modul.title || '',
+          sections: []
+        };
+
+        modul.sections.forEach(function(section, sectionIndex) {
+          createSection(modulContainer, section, sectionIndex, modulData.sections);
+        });
+
+        markdownContent.formSections.push(modulData);
+        dynamicFormContainer.appendChild(modulContainer);
+      });
+
+      markdownContainer.textContent = generateMarkdownContent(markdownContent);
+    }
+  });
+
+  function createSection(modulContainer, section, sectionIndex, sectionsArray) {
+    let groupCounter = 1;
+
+    const sectionData = {
+      title: section.section_title || '',
+      groups: []
     };
 
-    const groupDiv = document.createElement('div');
-    groupDiv.classList.add('group');
+    const sectionContainer = document.createElement('div');
+    sectionContainer.classList.add('section-group');
 
-    if (section.canAdd) {
-      groupData.groupTitle = `Gruppo ${groupCounter}`;
-      const groupTitle = document.createElement('h3');
-      groupTitle.innerText = `Gruppo ${groupCounter}`;
-      groupDiv.appendChild(groupTitle);
+    if (section.section_title) {
+      const sectionTitleElement = document.createElement('h3');
+      sectionTitleElement.innerText = section.section_title;
+      sectionContainer.appendChild(sectionTitleElement);
     }
 
-    const fieldContainer = document.createElement('div');
+    const groupContainer = document.createElement('div');
+    groupContainer.classList.add('group-container');
 
-    if (section.canAdd) {
-      fieldContainer.classList.add('field-group');
-    }
-
-    section.fields.forEach(function (fieldList) {
-      fieldList.forEach(function (field) {
-        addFieldToSection(field, fieldContainer, groupData, groupCounter);
-      });
-    });
-
-    groupDiv.appendChild(fieldContainer);
-    groupContainer.appendChild(groupDiv);
-    
-    sectionData.groups.push(groupData);
-    
-
-    groupCounter++;
-  }
-
-  addGroup();
-
-  if (section.canAdd) {
-    const addButton = document.createElement('button');
-    addButton.innerText = 'Aggiungi gruppo';
-    addButton.classList.add('add-row-button');
-    addButton.addEventListener('click', function (e) {
-      e.preventDefault();
-      addGroup();
-    });
-
-    sectionContainer.appendChild(addButton);
-  }
-
-  sectionContainer.appendChild(groupContainer);
-  sectionsArray.push(sectionData);
-  modulContainer.appendChild(sectionContainer);
-}
-
-function addFieldToSection(field, fieldContainer, groupData, index){
-    const fieldData = {
-        label: field.label || '',
-        name:  field.name,
-        type: field.type,
-        value: field.default || '',
-        required: field.required || false,
-        columns: Array.isArray(field.columns) ? field.columns : [],
-        rows: Array.isArray(field.rows) ? field.rows : []         
+    function addGroup() {
+      const groupData = {
+        groupTitle: "",
+        fields: []
       };
 
-      const fieldContent = document.createElement('p');
+      const groupDiv = document.createElement('div');
+      groupDiv.classList.add('group');
 
-      if (field.label) {
-        const label = document.createElement('label');
-        label.innerText = field.label + ' ';
-        fieldContent.appendChild(label);
-
-         if (field.required) {
-          const asterisk = document.createElement('span');
-          asterisk.innerText = '*';
-          asterisk.style.color = 'red';
-          label.appendChild(asterisk);
-        }
+      if (section.canAdd) {
+        groupData.groupTitle = `Gruppo ${groupCounter}`;
+        const groupTitle = document.createElement('h3');
+        groupTitle.innerText = `Gruppo ${groupCounter}`;
+        groupDiv.appendChild(groupTitle);
       }
 
-      if (field.type === 'table') {
-        handleTableField(field, fieldData, fieldContent);
-      }else if(field.type === 'textarea'){
-        const textarea = document.createElement('textarea');
-        textarea.type = field.type;
-        textarea.name =  `${field.name}[${index}]`;
-        fieldData.name = textarea.name;
-        textarea.classList.add('form-control');
-        textarea.value = field.default || '';
-        textarea.required = field.required ?? false;
-        textarea.addEventListener('input', function() {updateMarkdown(textarea); });
-        fieldContent.appendChild(textarea);
-      } else if (field.type === 'date') {
-        const dateInput = document.createElement('input');
-        dateInput.type = 'date';
-        dateInput.name = `${field.name}[${index}]`;
-        fieldData.name = dateInput.name;
-        dateInput.classList.add('form-control');
-        dateInput.value = field.default || '';
-        dateInput.required = field.required ?? false;
-        dateInput.addEventListener('input', function() { updateMarkdown(dateInput); });
-        fieldContent.appendChild(dateInput);
-      } else {
-        const input = document.createElement('input');
-        input.type = field.type;
-        input.name =  `${field.name}[${index}]`;
-        fieldData.name = input.name;
-        input.classList.add('form-control');
-        input.value = field.default || '';
-        input.required = field.required ?? false;
-        input.addEventListener('input', function() { updateMarkdown(input); });
-        fieldContent.appendChild(input);
+      const fieldContainer = document.createElement('div');
+
+      if (section.canAdd) {
+        fieldContainer.classList.add('field-group');
       }
 
-      fieldContainer.appendChild(fieldContent);
-      groupData.fields.push(fieldData);
-}
+      section.fields.forEach(function (fieldList) {
+        fieldList.forEach(function (field) {
+          addFieldToSection(field, fieldContainer, groupData, groupCounter);
+        });
+      });
 
-function handleTableField(field, fieldData, fieldContent) {
-  const table = document.createElement('table');
-  const headerRow = document.createElement('tr');
-  
-  field.columns.forEach(function(column) {
-    const th = document.createElement('th');
-    th.innerText = column;
-    headerRow.appendChild(th);
-  });
+      groupDiv.appendChild(fieldContainer);
+      groupContainer.appendChild(groupDiv);
 
-  table.appendChild(headerRow);
+      sectionData.groups.push(groupData);
 
-  field.rows.forEach(function(row, rowIndex) {
-    addTableRow(table, field, fieldData, row, rowIndex);
-  });
 
-  const addRowButton = document.createElement('button');
-  addRowButton.innerText = 'Aggiungi riga';
-  addRowButton.classList.add('add-row-button',);
-  addRowButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    const newRow = {
-      label: ""
-    };
-    field.columns.forEach(column => { newRow[column] = ''; });
-    field.rows.push(newRow);
-    addTableRow(table, field, fieldData, newRow, field.rows.length - 1);
-    markdownContainer.textContent = generateMarkdownContent(markdownContent);
-  });
+      groupCounter++;
+    }
 
-  fieldContent.appendChild(table);
-  fieldContent.appendChild(addRowButton);
-}
+    addGroup();
 
-function addTableRow(table, field, fieldData, row, rowIndex) {
-  const rowElement = document.createElement('tr');
-  field.columns.forEach(function(column, colIndex) {
-    const td = document.createElement('td');
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.name = `${field.name}_row_${rowIndex}_col_${colIndex}`;
-    input.value = row[column] || '';
-    input.addEventListener('input', function() { field.rows[rowIndex][field.columns[colIndex]] = input.value;; updateMarkdown(input); });
-    td.appendChild(input);
-    rowElement.appendChild(td);
-  });
-  table.appendChild(rowElement);
-}
+    if (section.canAdd) {
+      const addButton = document.createElement('button');
+      addButton.innerText = 'Aggiungi gruppo';
+      addButton.classList.add('add-row-button');
+      addButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        addGroup();
+      });
 
-function updateMarkdown(input) {
-  const inputName = input.name;
-  const inputValue = input.value.trim();
+      sectionContainer.appendChild(addButton);
+    }
 
-  const field = findFieldByName(inputName);
-  if (field) {
-    field.value = inputValue;
+    sectionContainer.appendChild(groupContainer);
+    sectionsArray.push(sectionData);
+    modulContainer.appendChild(sectionContainer);
   }
 
-  markdownContainer.textContent = generateMarkdownContent(markdownContent);
-}
+  function addFieldToSection(field, fieldContainer, groupData, index){
+      const fieldData = {
+          label: field.label || '',
+          name:  field.name,
+          type: field.type,
+          value: '',
+          required: field.required || false,
+          columns: Array.isArray(field.columns) ? field.columns : [],
+          rows: Array.isArray(field.rows) ? field.rows : []
+        };
 
-function findFieldByName(fieldName) {
-  
-  for (let modul of markdownContent.formSections) {
-    for (let section of modul.sections) {
-       for (let group of section.groups) {
-          for (let field of group.fields) {
-            if (field.name === fieldName) {
-              return field;
-            }
+        const fieldContent = document.createElement('p');
+
+        if (field.label) {
+          const label = document.createElement('label');
+          label.innerText = field.label + ' ';
+          fieldContent.appendChild(label);
+
+           if (field.required) {
+            const asterisk = document.createElement('span');
+            asterisk.innerText = '*';
+            asterisk.style.color = 'red';
+            label.appendChild(asterisk);
           }
         }
-    }
+
+        if (field.type === 'table') {
+          handleTableField(field, fieldData, fieldContent);
+        }else if(field.type === 'textarea'){
+          const textarea = document.createElement('textarea');
+          textarea.type = field.type;
+          textarea.name =  `${field.name}[${index}]`;
+          fieldData.name = textarea.name;
+          textarea.classList.add('form-control');
+          textarea.placeholder = field.default || '';
+          textarea.required = field.required ?? false;
+          textarea.addEventListener('input', function() {updateMarkdown(textarea); });
+          fieldContent.appendChild(textarea);
+        } else if (field.type === 'date') {
+          const dateInput = document.createElement('input');
+          dateInput.type = 'date';
+          dateInput.name = `${field.name}[${index}]`;
+          fieldData.name = dateInput.name;
+          dateInput.classList.add('form-control');
+          dateInput.value = field.default || '';
+          dateInput.required = field.required ?? false;
+          dateInput.addEventListener('input', function() { updateMarkdown(dateInput); });
+          fieldContent.appendChild(dateInput);
+        }else if (field.type === 'select-user') {
+          const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
+          const select = document.createElement('select');
+          select.name = field.name;
+          select.classList.add('form-control');
+
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Seleziona un utente';
+          select.appendChild(defaultOption);
+
+          // Popola la select con gli utenti
+          users.forEach(user => {
+              const option = document.createElement('option');
+              option.value = user.name;
+              option.textContent = user.name;
+              select.appendChild(option);
+          });
+
+          select.addEventListener('change', function() { updateMarkdown(select); });
+
+          fieldContent.appendChild(select);
+      } else {
+          const input = document.createElement('input');
+          input.type = field.type;
+          input.name =  `${field.name}[${index}]`;
+          fieldData.name = input.name;
+          input.classList.add('form-control');
+          input.placeholder = field.default || '';
+          input.required = field.required ?? false;
+          input.addEventListener('input', function() { updateMarkdown(input); });
+          fieldContent.appendChild(input);
+        }
+
+        fieldContainer.appendChild(fieldContent);
+        groupData.fields.push(fieldData);
   }
-  return null;
-}
 
-function generateMarkdownContent(content) {
-  let markdown = content.title || '';
-  let toc = '';
+  function handleTableField(field, fieldData, fieldContent) {
+    const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
 
-  content.formSections.forEach((modul, indexModul) => {
-    const hasValidSections = modul.sections.some(section => 
-      section.groups.some(group => 
-        group.fields.some(field => 
-          (field.type === 'table' && field.rows.some(row => 
-            field.columns.some(column => row[column] && row[column].trim() !== '')
-          )) || (field.value && field.value.trim() !== '')
-        )
-      )
-    );
+    field.columns.forEach(function(column) {
+      const th = document.createElement('th');
+      th.innerText = column.name;
+      headerRow.appendChild(th);
+    });
 
-    if (hasValidSections) {
-      let modulAnchor = `modul-${indexModul + 1}`;
-      toc += `- [${modul.title}](#${modulAnchor})\n`;
-      markdown += `## ${indexModul + 1}. [${modul.title}](#${modulAnchor})\n\n`;
+    table.appendChild(headerRow);
 
-      modul.sections.forEach((section, indexSection) => {
-        const hasNonEmptyField = section.groups.some(group => 
-          group.fields.some(field => 
-            (field.type === 'table' && field.rows.some(row => 
+    field.rows.forEach(function(row, rowIndex) {
+      addTableRow(table, field, fieldData, row, rowIndex);
+    });
+
+    const addRowButton = document.createElement('button');
+    addRowButton.innerText = 'Aggiungi riga';
+    addRowButton.classList.add('add-row-button',);
+    addRowButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      const newRow = {
+        label: ""
+      };
+      field.columns.forEach(column => { newRow[column.name] = ''; });
+      field.rows.push(newRow);
+      addTableRow(table, field, fieldData, newRow, field.rows.length - 1);
+      markdownContainer.textContent = generateMarkdownContent(markdownContent);
+    });
+
+    fieldContent.appendChild(table);
+    fieldContent.appendChild(addRowButton);
+  }
+
+  function addTableRow(table, field, fieldData, row, rowIndex) {
+    const rowElement = document.createElement('tr');
+
+    field.columns.forEach(function(column, colIndex) {
+      const td = document.createElement('td');
+      let input;
+
+      const inputType = column.inputType || 'text';
+
+      if (inputType === 'textarea') {
+        input = document.createElement('textarea');
+        input.rows = 2;
+      }else if(inputType === 'select-user'){
+        const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
+        input = document.createElement('select');
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Seleziona un utente';
+        input.appendChild(defaultOption);
+
+        // Popola la select con gli utenti
+        users.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.name;
+            option.textContent = user.name;
+            input.appendChild(option);
+        });
+        input.addEventListener('change', function() {field.rows[rowIndex][column.name] = input.value; updateMarkdown(input); });
+      } else {
+        input = document.createElement('input');
+        input.type = inputType;
+      }
+
+      input.name = `${field.name}_row_${rowIndex}_col_${colIndex}`;
+      input.value = row[column.name] || '';
+
+      input.addEventListener('input', function() { field.rows[rowIndex][column.name] = input.value; updateMarkdown(input);});
+
+      td.appendChild(input);
+      rowElement.appendChild(td);
+    });
+
+    console.log('re', rowElement);
+
+
+    table.appendChild(rowElement);
+  }
+
+  function updateMarkdown(input) {
+    const inputName = input.name;
+    const inputValue = input.value.trim();
+
+    const field = findFieldByName(inputName);
+    if (field) {
+      field.value = inputValue;
+    }
+
+    markdownContainer.textContent = generateMarkdownContent(markdownContent);
+  }
+
+  function findFieldByName(fieldName) {
+
+    for (let modul of markdownContent.formSections) {
+      for (let section of modul.sections) {
+         for (let group of section.groups) {
+            for (let field of group.fields) {
+              if (field.name === fieldName) {
+                return field;
+              }
+            }
+          }
+      }
+    }
+    return null;
+  }
+
+  function generateMarkdownContent(content) {
+    console.log('mdcontent', content);
+
+    let markdown = content.title || '';
+    let toc = '';
+
+    content.formSections.forEach((modul, indexModul) => {
+      const hasValidSections = modul.sections.some(section =>
+        section.groups.some(group =>
+          group.fields.some(field =>
+            (field.type === 'table' && field.rows.some(row =>
               field.columns.some(column => row[column] && row[column].trim() !== '')
             )) || (field.value && field.value.trim() !== '')
           )
-        );
+        )
+      );
 
-        if (hasNonEmptyField) {
-          let sectionAnchor = `section-${indexModul + 1}-${indexSection + 1}`;
-          toc += `  - [${section.title}](#${sectionAnchor})\n`;
-          markdown += `### ${indexModul + 1}.${indexSection + 1} [${section.title}](#${sectionAnchor})\n`;
+      if (hasValidSections) {
+        let modulAnchor = `modul-${indexModul + 1}`;
+        toc += `- [${modul.title}](#${modulAnchor})\n`;
+        markdown += `## ${indexModul + 1}. [${modul.title}](#${modulAnchor})\n\n`;
 
-          if (section.title === 'Denominazione del committente' || section.title === 'Approvazione del modulo') {
-            markdown += generateTableSection(section);
-          } else {
-            section.groups.forEach((group, indexGroup) => {
-              if (section.groups.length > 1) {
-                markdown += `#### Gruppo ${indexGroup + 1}\n\n`;
-              }
-              group.fields.forEach(field => {
-                markdown += formatField(field);
+        modul.sections.forEach((section, indexSection) => {
+          const hasNonEmptyField = section.groups.some(group =>
+            group.fields.some(field =>
+              (field.type === 'table' && field.rows.some(row =>
+                field.columns.some(column => row[column.name] && row[column.name].trim() !== '')
+              )) || (field.value && field.value.trim() !== '')
+            )
+          );
+
+          if (hasNonEmptyField) {
+            let sectionAnchor = `section-${indexModul + 1}-${indexSection + 1}`;
+            toc += `  - [${section.title}](#${sectionAnchor})\n`;
+            markdown += `### ${indexModul + 1}.${indexSection + 1} [${section.title}](#${sectionAnchor})\n`;
+
+            if (section.title === 'Denominazione del committente' || section.title === 'Approvazione del modulo') {
+              markdown += generateTableSection(section);
+            } else {
+              section.groups.forEach((group, indexGroup) => {
+                if (section.groups.length > 1) {
+                  markdown += `#### Gruppo ${indexGroup + 1}\n\n`;
+                }
+                group.fields.forEach(field => {
+                  markdown += formatField(field);
+                });
+                markdown += `\n---\n\n`;
               });
-              markdown += `\n---\n\n`;
-            });
+            }
           }
-        }
-      });
-    }
-  });
-
-  markdown = `# Indice\n\n` + toc + '\n\n' + markdown;
-  return markdown;
-}
-
-
-function generateTableSection(section) {
-  let tableMarkdown = '| Campo | Descrizione |\n';
-  tableMarkdown += '|-------|--------|\n';
-
-  section.groups.forEach(group => {
-    group.fields.forEach(field => {
-      if (field.value && field.value.trim() !== '') {
-        tableMarkdown += `| ${field.label || 'Campo'} | ${field.value} |\n`;
+        });
       }
     });
-  });
 
-  return tableMarkdown + '\n';
-}
-
-function formatField(field) {
-  if (field.type === 'table') {
-    const hasValuesInTable = field.rows.some(row =>
-      field.columns.some(column => row[column] && row[column].trim() !== '')
-    );
-
-    if (hasValuesInTable) {
-      let tableMarkdown = `| ${field.columns.join(' | ')} |\n`;
-      tableMarkdown += `| ${field.columns.map(() => '---').join(' | ')} |\n`;
-      field.rows.forEach(row => {
-        tableMarkdown += `| ${field.columns.map(column => row[column] || '').join(' | ')} |\n`;
-      });
-      return tableMarkdown + '\n';
-    }
-  } else if (field.value && field.value.trim() !== '') {
-    if (field.type === 'date') {
-      let formattedDate = new Date(field.value).toLocaleDateString('it-IT');
-      return field.label ? `##### ${field.label}: ${formattedDate}\n` : `${formattedDate}\n`;
-    } else {
-      return field.label ? `##### ${field.label}:\n  >${field.value}\n` : `${field.value}\n`;
-    }
+    markdown = `# Indice\n\n` + toc + '\n\n' + markdown;
+    return markdown;
   }
-  return '';
-}
 
-})
 
+  function generateTableSection(section) {
+    let tableMarkdown = '| Campo | Descrizione |\n';
+    tableMarkdown += '|-------|--------|\n';
+
+    section.groups.forEach(group => {
+      group.fields.forEach(field => {
+        if (field.value && field.value.trim() !== '') {
+          tableMarkdown += `| ${field.label || 'Campo'} | ${field.value} |\n`;
+        }
+      });
+    });
+
+    return tableMarkdown + '\n';
+  }
+
+  function formatField(field) {
+   console.log('formatfield', field);
+    if (field.type === 'table') {
+
+
+      const columns = field.columns.map(col => col.name);
+
+      const hasValuesInTable = field.rows.some(row =>
+        columns.some(column => row[column] && row[column].trim() !== '')
+      );
+
+
+      if (hasValuesInTable) {
+        let tableMarkdown = `| ${columns.join(' | ')} |\n`;
+        tableMarkdown += `| ${columns.map(() => '---').join(' | ')} |\n`;
+        field.rows.forEach(row => {
+          tableMarkdown += `| ${columns.map(column => row[column] || '').join(' | ')} |\n`;
+        });
+        return tableMarkdown + '\n';
+      }
+    } else if (field.value && field.value.trim() !== '') {
+      if (field.type === 'date') {
+        let formattedDate = new Date(field.value).toLocaleDateString('it-IT');
+        return field.label ? `##### ${field.label}: ${formattedDate}\n` : `${formattedDate}\n`;
+      } else {
+        return field.label ? `##### ${field.label}:\n  >${field.value}\n` : `${field.value}\n`;
+      }
+    }
+    return '';
+  }
+
+
+  })
 </script>
 
-
 <style>
-.modul-container {
-  margin: 2rem auto;
-  max-width: 80%;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
-}
+  .modul-container {
+    margin: 2rem auto;
+    max-width: 80%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
 
-.section-group {
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid #ddd;
-}
-.field-group{
+  .section-group {
     margin-bottom: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 8px;
- background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border: 1px solid #ddd;
-}
+  }
+  .field-group {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+  }
 
-.form-control {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
-}
+  .form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #ccc;
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-}
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
 
-th {
-  background-color: #f4f4f4;
-}
+  th {
+    background-color: #f4f4f4;
+  }
 
-.add-row-button {
-  padding: 0.6rem 1rem;
-  margin: 0.5rem 0;
-}
+  .add-row-button {
+    padding: 0.3rem 0.5rem;
+    margin: 0.5rem 0;
+  }
 
-
+  #issue_dynamic_description_select{
+    width: 100%;
+  }
 </style>
