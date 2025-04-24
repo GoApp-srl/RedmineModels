@@ -2,7 +2,7 @@ require 'json'
 
 module DynamicIssueDescription
   class DynamicIssueDescriptionHookListener < Redmine::Hook::ViewListener
-    def view_issues_form_details_top(context = {})
+    def view_issues_form_details_bottom(context = {})
       project = context[:project]
 
       # Se il progetto non ha il modulo abilitato, non fare nulla
