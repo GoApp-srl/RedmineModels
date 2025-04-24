@@ -2,7 +2,7 @@
     "form_types" : [
       {
         "id": "1",
-        "name": "MOD-812-A",
+        "name": "Raccolta e riesame dei requisiti (MOD-812-A)",
         "moduls" :[
           {
             "title" : "Raccolta e riesame dei requisiti",
@@ -146,7 +146,7 @@
       },
       {
         "id": "2",
-        "name": "MOD-813",
+        "name": "Progettazione (MOD-813)",
         "moduls" :[
           {
             "title" : "Denominazione del committente",
@@ -790,7 +790,7 @@
       },
       {
         "id": "3",
-        "name": "MOD-814-C",
+        "name": "Richiesta di offerta (MOD-814-C)",
         "moduls" :[
           {
             "title" : "Richiesta di offerta",
@@ -887,7 +887,7 @@
       },
       {
         "id": "4",
-        "name": "MOD-814-D",
+        "name": "Ordine di Acquisto (MOD-814-D)",
         "moduls" :[
           {
             "title" : "Ordine di Acquisto",
@@ -1008,7 +1008,7 @@
       },
       {
         "id": "5",
-        "name": "MOD-814-E",
+        "name": "Richiesta di modifica (MOD-814-E)",
         "moduls" :[
           {
             "title" : "Richiesta di modifica",
@@ -1101,7 +1101,7 @@
       },
       {
         "id": "6",
-        "name": "MOD-815-A",
+        "name": "Piano della produzione (MOD-815-A)",
         "moduls" :[
           {
             "title" : "Piano della produzione",
@@ -1172,7 +1172,7 @@
       },
       {
         "id": "7",
-        "name": "MOD-815-B",
+        "name": "Identificazione e rintracciabilità (MOD-815-B)",
         "moduls" :[
           {
             "title" : "Identificazione e rintracciabilità",
@@ -1239,7 +1239,7 @@
       },
       {
         "id": "8",
-        "name": "MOD-815-C",
+        "name": "Validazione della produzione (MOD-815-C)",
         "moduls" :[
           {
             "title" : "Validazione della produzione",
@@ -1326,7 +1326,7 @@
       },
       {
         "id": "9",
-        "name": "MOD-815-D",
+        "name": "Rilascio del prodotto (MOD-815-D)",
         "moduls" :[
           {
             "title" : "Rilascio del prodotto",
@@ -1404,7 +1404,7 @@
       },
       {
         "id": "10",
-        "name": "MOD-815-E",
+        "name": "Consegna del prodotto (MOD-815-E)",
         "moduls" :[
           {
             "title" : "Consegna del prodotto",
@@ -1482,10 +1482,10 @@
       },
       {
         "id": "11",
-        "name": "MOD-815-F",
+        "name": "Proprietà del cliente (MOD-815-F)",
         "moduls" :[
           {
-            "title" : "Poprietà del cliente",
+            "title" : "Proprietà del cliente",
             "sections" : [
               {
                 "section_title": "Verbale di acquisizione della proprietà del cliente (informazioni e asset)",
@@ -1585,7 +1585,7 @@
       },
       {
         "id": "12",
-        "name": "MOD-817-A",
+        "name": "Controllo qualità (MOD-817-A)",
         "moduls" :[
           {
             "title" : "Controllo qualità",
