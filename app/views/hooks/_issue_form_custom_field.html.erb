@@ -508,7 +508,19 @@
     margin: 0.5rem 0;
   }
 
-  #issue_dynamic_description_select{
-    width: 100%;
+    #issue_dynamic_description_select{
+    width: 100% !important; 
+  }
+
+  #attributes p, #issue_is_private_wrap, #attachments_form, #watchers_form_container {
+    display: none !important;
+  }
+
+  #all_attributes p:has(#issue_description) {
+  display: none !important;
+  }
+
+   #all_attributes p:has(#s2id_issue_tracker_id), #all_attributes p:has(#issue_tracker_id) {
+    display: none !important;
   }
 </style>
