@@ -25,8 +25,6 @@
 
   const markdownContainer = document.getElementById('issue_description');
 
-  $('#issue_dynamic_description_select').select2();
-
   $('#issue_dynamic_description_select').on('change', function() {
 
     const selectedType = this.value;
@@ -109,6 +107,20 @@
         const groupTitle = document.createElement('h3');
         groupTitle.innerText = `Gruppo ${groupCounter}`;
         groupDiv.appendChild(groupTitle);
+
+        if(groupCounter > 1){
+          const removeButton = document.createElement('button');
+          removeButton.innerText = 'Rimuovi gruppo';
+          removeButton.classList.add('remove-row-button');
+          removeButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            groupContainer.removeChild(groupDiv);
+            sectionData.groups.pop(groupData);
+            groupCounter--;
+            markdownContainer.textContent = generateMarkdownContent(markdownContent);
+          });
+          groupDiv.appendChild(removeButton);
+        }
       }
 
       const fieldContainer = document.createElement('div');
@@ -195,7 +207,7 @@
           dateInput.name = `${field.name}[${index}]`;
           fieldData.name = dateInput.name;
           dateInput.classList.add('form-control');
-          dateInput.value = field.default || '';
+          dateInput.value = field.default === "new-date" ? new Date().toISOString().split('T')[0] : '';
           dateInput.required = field.required ?? false;
           dateInput.addEventListener('input', function() { updateMarkdown(dateInput); });
           fieldContent.appendChild(dateInput);
@@ -203,7 +215,7 @@
           const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
           const select = document.createElement('select');
           select.name = field.name;
-          select.classList.add('form-control');
+
 
           const defaultOption = document.createElement('option');
           defaultOption.value = '';
@@ -218,9 +230,74 @@
               select.appendChild(option);
           });
 
-          select.addEventListener('change', function() { updateMarkdown(select); });
+          select.addEventListener('change', function(e) { updateMarkdown(select); });
 
           fieldContent.appendChild(select);
+      }else if (field.type === 'combo-si' || field.type === 'combo-consenso') {
+
+          let combo = [];
+
+          if (field.type === 'combo-si') {
+            combo = ['Si', 'No'];
+          } else
+          if (field.type === 'combo-consenso') {
+            combo = ['Consenso', 'Non consenso'];
+          }
+          const select = document.createElement('select');
+          select.name = field.name;
+
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Seleziona una combo';
+          select.appendChild(defaultOption);
+
+          combo.forEach(c => {
+              const option = document.createElement('option');
+              option.value = c;
+              option.textContent = c;
+              select.appendChild(option);
+          });
+
+          select.addEventListener('change', function() {
+            const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+            console.log(selected);
+            updateMarkdown(select);
+          });
+
+          fieldContent.appendChild(select);
+      }else if (field.type === 'select-user-multiple') {
+
+           const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
+          const selectMultiple = document.createElement('select');
+          selectMultiple.name = field.name;
+          selectMultiple.multiple = true;
+
+
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Seleziona un utente';
+          selectMultiple.appendChild(defaultOption);
+
+          // Popola la select con gli utenti
+          users.forEach(user => {
+              const option = document.createElement('option');
+              option.value = user.name;
+              option.textContent = user.name;
+              selectMultiple.appendChild(option);
+          });
+
+          fieldContent.appendChild(selectMultiple);
+
+             $(selectMultiple).select2({
+            placeholder: 'Seleziona una o più opzioni',
+            width: '100%'
+          });
+
+          $(selectMultiple).on('change', function () {
+            const selected = $(this).val();
+            console.log(selected);
+            updateMarkdown(selectMultiple, selected);
+          });
       } else {
           const input = document.createElement('input');
           input.type = field.type;
@@ -286,6 +363,8 @@
       }else if(inputType === 'select-user'){
         const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
         input = document.createElement('select');
+
+
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
         defaultOption.textContent = 'Seleziona un utente';
@@ -299,6 +378,60 @@
             input.appendChild(option);
         });
         input.addEventListener('change', function() {field.rows[rowIndex][column.name] = input.value; updateMarkdown(input); });
+      }else if(inputType === 'select-user-multiple'){
+        const users = <%= raw users.map { |u| { name: u.name } }.to_json %>;
+        input = document.createElement('select');
+        input.multiple = true;
+        input.name = field.name;
+        input.value = row[column.name] || '';
+
+
+        // Popola la select con gli utenti
+        users.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.name;
+            option.textContent = user.name;
+            input.appendChild(option);
+        });
+
+        td.appendChild(input);
+
+        $(input).select2({
+          placeholder: 'Seleziona una o più opzioni',
+          width: '100%'
+        });
+        $(input).on('change', function () {
+          const selected = $(this).val();
+          console.log(selected);
+          field.rows[rowIndex][column.name] = selected.map(item => item.trim()).join(', ');
+          console.log(field.rows[rowIndex][column.name]);
+
+          updateMarkdown(input, selected);
+        });
+
+      }else if (inputType === 'combo-si' || inputType === 'combo-consenso') {
+
+          let combo = [];
+
+          if (inputType === 'combo-si') {
+            combo = ['Si', 'No'];
+          } else
+          if (inputType === 'combo-consenso') {
+            combo = ['Consenso', 'Non consenso'];
+          }
+        input = document.createElement('select');
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Seleziona una combo';
+        input.appendChild(defaultOption);
+
+        combo.forEach(c => {
+            const option = document.createElement('option');
+            option.value = c;
+            option.textContent = c;
+            input.appendChild(option);
+        });
+        input.addEventListener('change', function() {field.rows[rowIndex][column.name] = input.value; updateMarkdown(input); });
       } else {
         input = document.createElement('input');
         input.type = inputType;
@@ -306,6 +439,7 @@
 
       input.name = field.name;
       input.value = row[column.name] || '';
+      input.style.width = '100%';
 
       input.addEventListener('input', function() { field.rows[rowIndex][column.name] = input.value; updateMarkdown(input);});
 
@@ -313,16 +447,45 @@
       rowElement.appendChild(td);
     });
 
+      const removeTd = document.createElement('td');
+      const removeBtn = document.createElement('button');
+      removeBtn.innerText = 'Rimuovi';
+      removeBtn.type = 'button';
+      removeBtn.disabled = rowIndex === 0;
+      removeBtn.classList.add('remove-row-button');
+
+      removeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        field.rows.splice(rowIndex, 1);
+        rowElement.remove();
+
+        markdownContainer.textContent = generateMarkdownContent(markdownContent);
+      });
+
+      removeTd.appendChild(removeBtn);
+      rowElement.appendChild(removeTd);
+
+
     table.appendChild(rowElement);
   }
 
-  function updateMarkdown(input) {
+  function updateMarkdown(input, selected) {
     const inputName = input.name;
     const inputValue = input.value.trim();
 
     const field = findFieldByName(inputName);
     if (field) {
-      field.value = inputValue;
+      console.log('field', field);
+
+      if(inputName.includes('[]')){
+        console.log('e');
+
+        field.value = selected.map(item => item.trim()).join(', ');
+       }else{
+        field.value = inputValue;
+       }
+
     }
 
     markdownContainer.textContent = generateMarkdownContent(markdownContent);
@@ -453,8 +616,7 @@
 
 <style>
   .modul-container {
-    margin: 2rem auto;
-    max-width: 80%;
+    margin: 2rem 0 2rem 170px;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -503,24 +665,47 @@
     background-color: #f4f4f4;
   }
 
-  .add-row-button {
-    padding: 0.3rem 0.5rem;
-    margin: 0.5rem 0;
+  .add-row-button,
+  .add-row-button:focus {
+    background-color: #28a745;
+    border: 2px solid #28a745;
+    color: white;
+    margin: 10px;
   }
 
-    #issue_dynamic_description_select{
-    width: 100% !important; 
+  .add-row-button:hover {
+    background-color: #218838;
+    border: 2px solid #1e7e34;
   }
 
-  #attributes p, #issue_is_private_wrap, #attachments_form, #watchers_form_container {
+  .remove-row-button {
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+    color: white;
+    margin: 10px 0;
+  }
+
+  .remove-row-button:hover {
+    background-color: #c82333;
+    border: 2px solid #bd2130;
+  }
+
+  #issue_dynamic_description_select {
+    width: 100% !important;
+  }
+
+  #attributes p,
+  #issue_is_private_wrap,
+  #watchers_form_container {
     display: none !important;
   }
 
   #all_attributes p:has(#issue_description) {
-  display: none !important;
+    display: none !important;
   }
 
-   #all_attributes p:has(#s2id_issue_tracker_id), #all_attributes p:has(#issue_tracker_id) {
+  #all_attributes p:has(#s2id_issue_tracker_id),
+  #all_attributes p:has(#issue_tracker_id) {
     display: none !important;
   }
 </style>
