@@ -8,6 +8,22 @@
           "title": "Raccolta e riesame dei requisiti",
           "sections": [
             {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
+            {
               "section_title": "Denominazione del committente",
               "section_description": "",
               "canAdd": false,
@@ -61,14 +77,14 @@
                     "name": "attivita_committente",
                     "label": "Attività del committente",
                     "type": "textarea",
-                    "default": "spiegare brevemente di che cosa si occupa il committente e quali sono le attività che svolge",
+                    "placeholder": "spiegare brevemente di che cosa si occupa il committente e quali sono le attività che svolge",
                     "required": true
                   },
                   {
                     "name": "descrizione_problematica",
                     "label": "Descrizione della problematica / Scopo dell'intervento",
                     "type": "textarea",
-                    "default": "spiegare in maniera dettagliata quale è la problematica che viene affrontata relativamente a quanto il committente ha espresso. Definire con precisione quale è la reale necessità del committente e come costui la argomenta. Aggiungere, ove possibile, informazioni di cui si dispone che possano costituire un fondamento su cui si basano le necessità e gli obiettivi del cliente",
+                    "placeholder": "spiegare in maniera dettagliata quale è la problematica che viene affrontata relativamente a quanto il committente ha espresso. Definire con precisione quale è la reale necessità del committente e come costui la argomenta. Aggiungere, ove possibile, informazioni di cui si dispone che possano costituire un fondamento su cui si basano le necessità e gli obiettivi del cliente",
                     "required": true
                   }
                 ]
@@ -91,21 +107,21 @@
                     "name": "specifica_requisito",
                     "label": "Specifica del requisito",
                     "type": "textarea",
-                    "default": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.",
+                    "placeholder": "descrivere in dettaglio la funzione richiesta dal cliente precisando, per esempio, che cosa chiede di poter fare, in quali circostanze, come, quando, gli attori, i tempi, i motivi, i limiti, le condizioni di accettabilità, etc.",
                     "required": true
                   },
                   {
                     "name": "criticita_organizzazione",
                     "label": "Criticità del requisito per l'organizzazione",
                     "type": "textarea",
-                    "default": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficolta utilizzando la seguente tipologia: alto, medio basso",
+                    "placeholder": "illustrare quali sono le criticità che l’organizzazione dovrà affrontare per il successivo trattamento del requisito. Elencare eventuali perplessità a motivo di carenze ed ostacoli presenti e/o futuri che l’organizzazione può incontrare nel trattamento del requisito. Formulare, se possibile, in corrispondenza di ciascuna difficoltà anche una soluzione di approccio. Al fine di classificare la criticità, attribuire un livello di oggettiva difficolta utilizzando la seguente tipologia: alto, medio basso",
                     "required": true
                   },
                   {
                     "name": "correlazioni_requisiti",
                     "label": "Correlazione con altri requisiti",
                     "type": "textarea",
-                    "default": "indicare brevemente quali sono le correlazioni del requisito con gli altri requisiti",
+                    "placeholder": "indicare brevemente quali sono le correlazioni del requisito con gli altri requisiti",
                     "required": false
                   }
                 ]
@@ -137,6 +153,22 @@
         {
           "title": "MOD-813-A Piano di progetto",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Obiettivi della progettazione e requisiti di sicurezza per le informazioni",
               "section_description": "",
@@ -669,6 +701,22 @@
           "title": "Modifiche progettuali",
           "sections": [
             {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
+            {
               "section_title": "Modifica",
               "section_description": "",
               "canAdd": true,
@@ -752,6 +800,22 @@
         {
           "title": "Richiesta di offerta",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Richiesta",
               "section_description": "",
@@ -1076,6 +1140,22 @@
           "title": "Piano della produzione",
           "sections": [
             {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
+            {
               "section_title": "Piano",
               "section_description": "",
               "canAdd": false,
@@ -1154,6 +1234,22 @@
           "title": "Identificazione e rintracciabilità",
           "sections": [
             {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
+            {
               "section_title": "",
               "section_description": "",
               "canAdd": false,
@@ -1224,6 +1320,22 @@
         {
           "title": "Validazione della produzione",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Commessa/Prodotto",
               "section_description": "",
@@ -1312,6 +1424,22 @@
           "title": "Rilascio del prodotto",
           "sections": [
             {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
+            {
               "section_title": "Rilascio",
               "section_description": "",
               "canAdd": false,
@@ -1370,7 +1498,7 @@
                     "name": "motivi_commessa_prodotto",
                     "label": "Motivi di non rilascio",
                     "type": "textarea",
-                    "default": "Inserire le motivazioni in caso di mancato rilascio del prodotto e le azioni da intraprendere",
+                    "placeholder": "Inserire le motivazioni in caso di mancato rilascio del prodotto e le azioni da intraprendere",
                     "required": false
                   }
                 ]
@@ -1387,6 +1515,22 @@
         {
           "title": "Consegna del prodotto",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Consegna",
               "section_description": "",
@@ -1446,7 +1590,7 @@
                     "name": "motivi_commessa_prodotto",
                     "label": "Motivi di non conformità del rilascio",
                     "type": "textarea",
-                    "default": "In caso di collaudo non conforme inserire NC emerse e le misure da intraprendere",
+                    "placeholder": "In caso di collaudo non conforme inserire NC emerse e le misure da intraprendere",
                     "required": false
                   }
                 ]
@@ -1463,6 +1607,22 @@
         {
           "title": "Proprietà del cliente",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Verbale di acquisizione della proprietà del cliente (informazioni e asset)",
               "section_description": "",
@@ -1573,6 +1733,22 @@
         {
           "title": "Controllo qualità",
           "sections": [
+            {
+              "section_title": "Informazioni generali",
+              "section_description": "",
+              "canAdd": false,
+              "fields": [
+                [
+                  {
+                    "name": "combo-etichettatura",
+                    "label": "Etichettatura",
+                    "type": "combo-etichettatura",
+                    "default": "IC-A: Informazione critica di livello A",
+                    "required": true
+                  }
+                ]
+              ]
+            },
             {
               "section_title": "Controllo per la preservazione dei requisit funzionali e di sicurezza delle informazioni",
               "section_description": "",
