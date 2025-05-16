@@ -168,7 +168,7 @@
           label: field.label || '',
           name:  field.name,
           type: field.type,
-          value: '',
+          value: field.default || '',
           required: field.required || false,
           columns: Array.isArray(field.columns) ? field.columns : [],
           rows: Array.isArray(field.rows) ? field.rows : []
@@ -197,7 +197,7 @@
           textarea.name =  `${field.name}[${index}]`;
           fieldData.name = textarea.name;
           textarea.classList.add('form-control');
-          textarea.placeholder = field.default || '';
+          textarea.placeholder = field.placeholder || '';
           textarea.required = field.required ?? false;
           textarea.addEventListener('input', function() {updateMarkdown(textarea); });
           fieldContent.appendChild(textarea);
@@ -233,7 +233,7 @@
           select.addEventListener('change', function(e) { updateMarkdown(select); });
 
           fieldContent.appendChild(select);
-      }else if (field.type === 'combo-si' || field.type === 'combo-consenso') {
+      }else if (field.type === 'combo-si' || field.type === 'combo-consenso' || field.type === 'combo-etichettatura') {
 
           let combo = [];
 
@@ -242,9 +242,12 @@
           } else
           if (field.type === 'combo-consenso') {
             combo = ['Consenso', 'Non consenso'];
+          }else if (field.type === 'combo-etichettatura') {
+            combo = ['IC-A: Informazione critica di livello A', 'IC-B: Informazione critica di livello B'];
           }
           const select = document.createElement('select');
           select.name = field.name;
+
 
           const defaultOption = document.createElement('option');
           defaultOption.value = '';
@@ -257,6 +260,8 @@
               option.textContent = c;
               select.appendChild(option);
           });
+
+          select.value = field.default || '';
 
           select.addEventListener('change', function() {
             const selected = Array.from(select.selectedOptions).map(opt => opt.value);
@@ -709,8 +714,10 @@
     display: none !important;
   }
 
- .edit_issue #issue_subject, .edit_issue #s2id_issue_project_id, .edit_issue #issue_project_id {
-    pointer-events:none;
+  .edit_issue #issue_subject,
+  .edit_issue #s2id_issue_project_id,
+  .edit_issue #issue_project_id {
+    pointer-events: none;
     disabled: true;
     background-color: #f0f0f0;
   }
