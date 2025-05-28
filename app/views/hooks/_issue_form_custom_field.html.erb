@@ -23,7 +23,14 @@
     formSections: []
   };
 
-  const markdownContainer = document.getElementById('issue_description');
+   const bodyClasses = document.body.className;
+    const isEditPage = bodyClasses.includes('controller-issues') && bodyClasses.includes('action-show');
+
+    const targetTextareaId = isEditPage ? 'issue_notes' : 'issue_description';
+    let markdownContainer = document.getElementById(targetTextareaId);
+
+  console.log(markdownContainer);
+  
 
   $('#issue_dynamic_description_select').on('change', function() {
 
