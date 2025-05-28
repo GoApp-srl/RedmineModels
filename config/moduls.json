@@ -1288,12 +1288,12 @@
                         "inputType": "text"
                       },
                       {
-                        "name": "Stato e condizionii di sicurezza",
+                        "name": "Stato e condizioni di sicurezza",
                         "inputType": "textarea"
                       },
                       {
                         "name": "Controllato da",
-                        "inputType": "text"
+                        "inputType": "select-user"
                       }
                     ],
                     "rows": [
@@ -1301,7 +1301,7 @@
                         "Data": "",
                         "Fase lavoro del prodotto/servizio": "",
                         "Posizione": "",
-                        "Stato e condizionii di sicurezza": "",
+                        "Stato e condizioni di sicurezza": "",
                         "Controllato da": ""
                       }
                     ]
