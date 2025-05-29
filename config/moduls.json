@@ -52,8 +52,8 @@
                   },
                   {
                     "name": "responsabile_rapporto_cliente",
-                    "label": "Responsabile rapporto da parte del cliente",
-                    "type": "select-user",
+                    "label": "Referente per il cliente",
+                    "type": "text",
                     "default": "",
                     "required": true
                   },
@@ -1271,7 +1271,7 @@
                   },
                   {
                     "name": "identificazione",
-                    "label": "",
+                    "label": "Identificazione e rintracciabilità",
                     "type": "table",
                     "required": true,
                     "columns": [
